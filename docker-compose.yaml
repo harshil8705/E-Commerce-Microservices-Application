@@ -4,7 +4,7 @@ services:
     image: postgres
     environment:
       POSTGRES_USER: harshil
-      POSTGRES_PASSWORD: harshil-8705
+      POSTGRES_PASSWORD: jhondoe
       PGDATA: /data/postgres
     volumes:
       - postgres:/data/postgres
@@ -38,7 +38,7 @@ services:
       - mongo:/data
     environment:
       MONGO_INITDB_ROOT_USERNAME: harshil
-      MONGO_INITDB_ROOT_PASSWORD: "harshil-8705"
+      MONGO_INITDB_ROOT_PASSWORD: harshil8705
     networks:
       - microservices-net
     restart: unless-stopped
@@ -51,7 +51,7 @@ services:
       - 8081:8081
     environment:
       - ME_CONFIG_MONGODB_ADMINUSERNAME=harshil
-      - ME_CONFIG_MONGODB_ADMINPASSWORD=harshil-8705
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=harshil8705
       - ME_CONFIG_MONGODB_SERVER=mongodb
     networks:
       - microservices-net
