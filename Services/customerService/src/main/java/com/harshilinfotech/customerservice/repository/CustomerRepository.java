@@ -1,0 +1,9 @@
+package com.harshilinfotech.customerservice.repository;
+
+import com.harshilinfotech.customerservice.entity.Customer;
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface CustomerRepository extends MongoRepository<Customer, String> {
+}
