@@ -1,15 +1,14 @@
 services:
-  postgresql:
+  postgres:
     container_name: ms_pg_sql
     image: postgres
-    environment:
-      POSTGRES_USER: harshil
-      POSTGRES_PASSWORD: harshil8705
-      PGDATA: /data/postgres
-    volumes:
-      - postgres:/data/postgres
     ports:
-      - "5432:5432"
+      - "6542:5432"
+    volumes:
+      - E:\MicroservicesProject\e-commerce-server\pg:/var/lib/postgresql
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
     networks:
       - microservices-net
     restart: unless-stopped
@@ -30,15 +29,15 @@ services:
     restart: unless-stopped
 
   mongodb:
+    container_name: ms_mongo_db
     image: mongo
-    container_name: mongo_db
     ports:
-      - "27017:27017"
+      - "7531:27017"
     volumes:
-      - mongo:/data
+      - E:\MicroservicesProject\e-commerce-server\mongo:/data/db
     environment:
-      MONGO_INITDB_ROOT_USERNAME: harshil
-      MONGO_INITDB_ROOT_PASSWORD: harshil8705
+      MONGO_INITDB_ROOT_USERNAME: user
+      MONGO_INITDB_ROOT_PASSWORD: pass
     networks:
       - microservices-net
     restart: unless-stopped
@@ -48,10 +47,10 @@ services:
     container_name: mongo_express
     restart: always
     ports:
-      - 8081:8081
+      - "8081:8081"
     environment:
-      - ME_CONFIG_MONGODB_ADMINUSERNAME=harshil
-      - ME_CONFIG_MONGODB_ADMINPASSWORD=harshil8705
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=user
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=pass
       - ME_CONFIG_MONGODB_SERVER=mongodb
     networks:
       - microservices-net
@@ -60,8 +59,8 @@ services:
     container_name: ms-mail-dev
     image: maildev/maildev
     ports:
-      - 1080:1080
-      - 1025:1025
+      - "1080:1080"
+      - "1025:1025"
     networks:
       - microservices-net
 

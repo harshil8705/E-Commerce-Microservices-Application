@@ -1,22 +1,26 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/products_db
-    username: harshil
-    password: harshil8705
+    url: jdbc:postgresql://localhost:6542/products_db
+    username: user
+    password: pass
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
       ddl-auto: validate
     database: postgresql
     show-sql: true
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
   flyway:
     enabled: true
     baseline-on-migrate: true
     baseline-version: 0
     baseline-description: "init"
-    url: jdbc:postgresql://localhost:5432/products_db
-    user: harshil
-    password: harshil8705
+    url: jdbc:postgresql://localhost:6542/products_db
+    user: user
+    password: pass
 
 server:
   port: 8050
