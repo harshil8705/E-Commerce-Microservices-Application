@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component;
 import java.math.BigDecimal;
 
 @Builder
-@Component
 public record ProductPurchaseResponse(
     Long productId,
     String name,

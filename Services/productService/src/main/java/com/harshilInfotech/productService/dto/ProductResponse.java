@@ -9,7 +9,6 @@ import javax.swing.*;
 import java.math.BigDecimal;
 
 @Builder
-@Component
 public record ProductResponse(
     Long id,
     String name,
