@@ -1,0 +1,26 @@
+spring:
+
+  #  PostgreSQL Database Configurations:
+  datasource:
+    url: jdbc:postgresql://localhost:6542/orders_db
+    username: user
+    password: pass
+    driver-class-name: org.postgresql.Driver
+
+  #  Hibernate Configurations:
+  jpa:
+    hibernate:
+      ddl-auto: create
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+#  Port Configurations:
+server:
+  port: 8070
+
+#  Microservices Configurations:
+application:
+  config:
+    customer-url: http://localhost:3663/api/v1/customers
+    product-url: http://localhost:3663/api/v1/products
+    payment-url: http://localhost:3663/api/v1/payments
