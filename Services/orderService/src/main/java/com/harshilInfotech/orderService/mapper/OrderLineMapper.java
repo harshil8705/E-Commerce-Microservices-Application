@@ -1,6 +1,7 @@
 package com.harshilInfotech.orderService.mapper;
 
 import com.harshilInfotech.orderService.dto.OrderLineRequest;
+import com.harshilInfotech.orderService.dto.OrderLineResponse;
 import com.harshilInfotech.orderService.entity.Order;
 import com.harshilInfotech.orderService.entity.OrderLine;
 import org.springframework.stereotype.Service;
@@ -19,5 +20,11 @@ public class OrderLineMapper {
                 )
                 .productId(request.productId())
                 .build();
+    }
+
+    public OrderLineResponse toOrderLineResponse(OrderLine orderLine) {
+
+        return new OrderLineResponse(orderLine.getId(), orderLine.getQuantity());
+
     }
 }

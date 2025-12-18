@@ -1,6 +1,7 @@
 package com.harshilInfotech.orderService.mapper;
 
 import com.harshilInfotech.orderService.dto.OrderRequest;
+import com.harshilInfotech.orderService.dto.OrderResponse;
 import com.harshilInfotech.orderService.entity.Order;
 import org.springframework.stereotype.Service;
 
@@ -19,4 +20,15 @@ public class OrderMapper {
 
     }
 
+    public OrderResponse toOrderResponse(Order order) {
+
+        return new OrderResponse(
+                order.getId(),
+                order.getReference(),
+                order.getTotalAmount(),
+                order.getPaymentMethod(),
+                order.getCustomerId()
+        );
+
+    }
 }
