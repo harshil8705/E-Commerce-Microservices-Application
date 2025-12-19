@@ -11,7 +11,7 @@
         <module name="configServer" />
         <module name="orderService" />
       </profile>
-      <profile name="Annotation profile for paymentService" enabled="true">
+      <profile name="Annotation profile for notificationService" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
@@ -20,6 +20,7 @@
         </processorPath>
         <module name="paymentService" />
         <module name="customerService" />
+        <module name="notificationService" />
         <module name="productService" />
       </profile>
     </annotationProcessing>
@@ -29,6 +30,7 @@
       <module name="configServer" options="-parameters" />
       <module name="customerService" options="-parameters" />
       <module name="discoveryService" options="-parameters" />
+      <module name="notificationService" options="-parameters" />
       <module name="orderService" options="-parameters" />
       <module name="paymentService" options="-parameters" />
       <module name="productService" options="-parameters" />
