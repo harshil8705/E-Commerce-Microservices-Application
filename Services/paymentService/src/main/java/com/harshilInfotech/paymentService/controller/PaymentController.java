@@ -4,7 +4,6 @@ import com.harshilInfotech.paymentService.dto.PaymentRequest;
 import com.harshilInfotech.paymentService.service.PaymentService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import lombok.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

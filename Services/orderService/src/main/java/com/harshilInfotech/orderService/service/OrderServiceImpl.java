@@ -29,17 +29,13 @@ public class OrderServiceImpl implements OrderService{
     @Override
     public Long createOrder(OrderRequest request) {
 
-        // Check the customer --> OpenFeign
         var customer = this.customerClient.findCustomerById(request.customerId())
                 .orElseThrow(() -> new BusinessException("Cannot create Order:: No Customer exists with provided Id:: " + request.customerId()));
 
-        // Purchase the products --> Product-ms
         var purchasedProducts = this.productClient.purchaseProducts(request.products());
 
-        // Persist Order
         var order = this.orderRepository.save(orderMapper.toOrder(request));
 
-        // Persist Order-line
         for (PurchaseRequest purchaseRequest : request.products()) {
             orderLineService.saveOrderLine(
                     new OrderLineRequest(
@@ -51,7 +47,6 @@ public class OrderServiceImpl implements OrderService{
             );
         }
 
-        // Start Payment process
         var paymentRequest = new PaymentRequest(
                 request.amount(),
                 request.paymentMethod(),
@@ -61,7 +56,6 @@ public class OrderServiceImpl implements OrderService{
         );
         paymentClient.requestOrderPayment(paymentRequest);
 
-        // Send the order confirmation --> notification-ms (kafka)
         orderProducer.sendOrderConfirmation(
                 new OrderConfirmation(
                         request.reference(),
