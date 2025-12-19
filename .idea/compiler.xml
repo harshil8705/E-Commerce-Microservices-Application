@@ -11,13 +11,14 @@
         <module name="configServer" />
         <module name="orderService" />
       </profile>
-      <profile name="Annotation profile for productService" enabled="true">
+      <profile name="Annotation profile for paymentService" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.42/lombok-1.18.42.jar" />
         </processorPath>
+        <module name="paymentService" />
         <module name="customerService" />
         <module name="productService" />
       </profile>
@@ -29,6 +30,7 @@
       <module name="customerService" options="-parameters" />
       <module name="discoveryService" options="-parameters" />
       <module name="orderService" options="-parameters" />
+      <module name="paymentService" options="-parameters" />
       <module name="productService" options="-parameters" />
     </option>
   </component>

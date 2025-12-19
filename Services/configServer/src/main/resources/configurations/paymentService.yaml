@@ -1,0 +1,28 @@
+spring:
+  #  PostgreSQL Configurations:
+  datasource:
+    url: jdbc:postgresql://localhost:6542/payments_db
+    username: user
+    password: pass
+    driver-class-name: org.postgresql.Driver
+
+  #  JPA Configurations:
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    database: postgresql
+    show-sql: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+  #  Kafka Configurations:
+  kafka:
+    producer:
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        spring.json.type.mapping: paymentConfirmation:com.harshilInfotech.paymentService.dto.PaymentNotificationRequest
+
+#  Port Configurations:
+server:
+  port: 8060

@@ -1,6 +1,7 @@
 package com.harshilInfotech.orderService.service;
 
 import com.harshilInfotech.orderService.client.CustomerClient;
+import com.harshilInfotech.orderService.client.PaymentClient;
 import com.harshilInfotech.orderService.client.ProductClient;
 import com.harshilInfotech.orderService.dto.*;
 import com.harshilInfotech.orderService.exception.BusinessException;
@@ -23,6 +24,7 @@ public class OrderServiceImpl implements OrderService{
     private final OrderMapper orderMapper;
     private final OrderLineService orderLineService;
     private final OrderProducer orderProducer;
+    private final PaymentClient paymentClient;
 
     @Override
     public Long createOrder(OrderRequest request) {
@@ -50,6 +52,14 @@ public class OrderServiceImpl implements OrderService{
         }
 
         // Start Payment process
+        var paymentRequest = new PaymentRequest(
+                request.amount(),
+                request.paymentMethod(),
+                order.getId(),
+                order.getReference(),
+                customer
+        );
+        paymentClient.requestOrderPayment(paymentRequest);
 
         // Send the order confirmation --> notification-ms (kafka)
         orderProducer.sendOrderConfirmation(
