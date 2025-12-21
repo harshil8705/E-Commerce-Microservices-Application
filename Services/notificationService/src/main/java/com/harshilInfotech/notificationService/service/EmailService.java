@@ -37,5 +37,4 @@ public class EmailService {
         messageHelper.setFrom("harshilchampaneri8705@gmail.com");
 
     }
-
 }
