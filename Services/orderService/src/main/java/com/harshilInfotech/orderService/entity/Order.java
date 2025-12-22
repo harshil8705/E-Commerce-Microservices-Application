@@ -35,7 +35,7 @@ public class Order {
 
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
-    @OneToMany(mappedBy = "Order")
+    @OneToMany(mappedBy = "order")
     private List<OrderLine> orderLines;
 
     @CreatedDate
