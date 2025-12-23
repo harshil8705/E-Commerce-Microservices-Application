@@ -1,11 +1,13 @@
 spring:
   data:
     mongodb:
-      username: user
-      password: pass
-      host: mongodb
-      port: 27017
-      database: customers
-      authentication-database: admin
+      uri: mongodb://user:pass@localhost:27017/customers?authSource=admin&directConnection=true
+#      host: localhost
+#      port: 27017
+#      database: customers
+#      username: user
+#      password: pass
+#      authentication-database: admin
+
 server:
   port: 8090

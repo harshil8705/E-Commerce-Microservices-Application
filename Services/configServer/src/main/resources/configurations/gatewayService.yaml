@@ -6,24 +6,32 @@ spring:
           enabled: true
       routes:
         - id: customerService
-          uri: lb:http://CUSTOMER-SERVICE
+          uri: lb://CUSTOMERSERVICE
           predicates:
             - Path=/api/v1/customers/**
         - id: orderService
-          uri: lb:http://ORDER-SERVICE
+          uri: lb://ORDERSERVICE
           predicates:
             - Path=/api/v1/orders/**
         - id: orderLinesService
-          uri: lb:http://CUSTOMER-SERVICE
+          uri: lb://ORDERSERVICE
           predicates:
             - Path=/api/v1/order-lines/**
         - id: productService
-          uri: lb:http://PRODUCT-SERVICE
+          uri: lb://PRODUCTSERVICE
           predicates:
             - Path=/api/v1/products/**
         - id: paymentService
-          uri: lb:http://PAYMENT-SERVICE
+          uri: lb://PAYMENTSERVICE
           predicates:
             - Path=/api/v1/payments/**
+
 server:
   port: 8822
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/

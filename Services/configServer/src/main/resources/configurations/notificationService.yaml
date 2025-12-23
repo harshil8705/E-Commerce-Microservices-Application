@@ -3,16 +3,17 @@ spring:
   # MongoDB Database Configurations:
   data:
     mongodb:
-      username: user
-      password: pass
-      host: mongodb
-      port: 27017
-      database: customers
-      authentication-database: admin
+      uri: mongodb://user:pass@localhost:27017/notifications?authSource=admin&directConnection=true
+#      username: user
+#      password: pass
+#      host: mongodb
+#      port: 27017
+#      database: notifications
+#      authentication-database: admin
 
   # Kafka Configurations:
   kafka:
-    bootstrap-servers: localhost:9092
+    bootstrap-servers: localhost:9094
     consumer:
       group-id: notificationGroup
       auto-offset-reset: earliest

@@ -1,4 +1,4 @@
-package com.harshilInfotech.paymentService.notification;
+package com.harshilInfotech.paymentService.kafka;
 
 import com.harshilInfotech.paymentService.dto.PaymentNotificationRequest;
 import lombok.RequiredArgsConstructor;
@@ -17,8 +17,8 @@ public class NotificationProducer {
     private final KafkaTemplate<String, PaymentNotificationRequest> kafkaTemplate;
 
     public void sendNotification(PaymentNotificationRequest request) {
-        log.info("Sending Notification with body <{}>", request);
 
+        log.info("Sending Notification with body <{}>", request);
         Message<PaymentNotificationRequest> message = MessageBuilder
                 .withPayload(request)
                 .setHeader(KafkaHeaders.TOPIC, "payment-topic")

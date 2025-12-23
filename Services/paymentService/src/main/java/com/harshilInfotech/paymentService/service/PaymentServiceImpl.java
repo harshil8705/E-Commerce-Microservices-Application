@@ -3,7 +3,7 @@ package com.harshilInfotech.paymentService.service;
 import com.harshilInfotech.paymentService.dto.PaymentNotificationRequest;
 import com.harshilInfotech.paymentService.dto.PaymentRequest;
 import com.harshilInfotech.paymentService.mapper.PaymentMapper;
-import com.harshilInfotech.paymentService.notification.NotificationProducer;
+import com.harshilInfotech.paymentService.kafka.NotificationProducer;
 import com.harshilInfotech.paymentService.repository.PaymentRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

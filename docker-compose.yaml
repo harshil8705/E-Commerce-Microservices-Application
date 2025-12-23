@@ -17,7 +17,7 @@ services:
     container_name: ms_mongo_db
     image: mongo
     ports:
-      - "7531:27017"
+      - "27017:27017"
     volumes:
       - mongodata:/data/db
     environment:
