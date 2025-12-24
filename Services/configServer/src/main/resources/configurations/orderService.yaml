@@ -30,6 +30,6 @@ server:
 #  Microservices Configurations:
 application:
   config:
-    customer-url: http://localhost:3663/api/v1/customers
-    product-url: http://localhost:3663/api/v1/products
-    payment-url: http://localhost:3663/api/v1/payments
+    customer-url: http://localhost:8822/api/v1/customers
+    product-url: http://localhost:8822/api/v1/products
+    payment-url: http://localhost:8822/api/v1/payments

@@ -1,33 +1,34 @@
+server:
+  port: 8822
+
 spring:
   cloud:
     gateway:
-      discovery:
-        locator:
-          enabled: true
-      routes:
-        - id: customerService
-          uri: lb://CUSTOMERSERVICE
-          predicates:
-            - Path=/api/v1/customers/**
-        - id: orderService
-          uri: lb://ORDERSERVICE
-          predicates:
-            - Path=/api/v1/orders/**
-        - id: orderLinesService
-          uri: lb://ORDERSERVICE
-          predicates:
-            - Path=/api/v1/order-lines/**
-        - id: productService
-          uri: lb://PRODUCTSERVICE
-          predicates:
-            - Path=/api/v1/products/**
-        - id: paymentService
-          uri: lb://PAYMENTSERVICE
-          predicates:
-            - Path=/api/v1/payments/**
-
-server:
-  port: 8822
+      mvc:
+#      discovery:
+#        locator:
+#          enabled: true
+        routes:
+          - id: customerService
+            uri: lb://CUSTOMERSERVICE
+            predicates:
+              - Path=/api/v1/customers/**
+          - id: orderService
+            uri: lb://ORDERSERVICE
+            predicates:
+              - Path=/api/v1/orders/**
+          - id: orderLinesService
+            uri: lb://ORDERSERVICE
+            predicates:
+              - Path=/api/v1/order-lines/**
+          - id: productService
+            uri: lb://PRODUCTSERVICE
+            predicates:
+              - Path=/api/v1/products/**
+          - id: paymentService
+            uri: lb://PAYMENTSERVICE
+            predicates:
+              - Path=/api/v1/payments/**
 
 eureka:
   instance:
@@ -35,3 +36,4 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
+
